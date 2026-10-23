@@ -1,0 +1,31 @@
+name: Publish to npm
+
+# Trusted publishing (OIDC): no npm token, no OTP. Requires:
+#   - npm >= 11.5.1 and Node >= 22.14 (setup-node below pins 24)
+#   - a trusted-publisher config on npmjs.com matching this repo + filename:
+#       org/user: Dhaxor, repo: llm-cloak, workflow: release.yml
+# Docs: https://docs.npmjs.com/trusted-publishers
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  id-token: write # OIDC token for the npm registry
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - run: npm publish
