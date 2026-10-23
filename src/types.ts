@@ -1,5 +1,5 @@
 /**
- * Shared types for context-guard.
+ * Shared types for llm-cloak.
  *
  * @packageDocumentation
  */

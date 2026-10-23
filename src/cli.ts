@@ -20,14 +20,14 @@ function readVersion(): string {
   return "0.0.0";
 }
 
-const USAGE = `context-guard — redact secrets & PII before they reach an LLM, and gate untrusted content
+const USAGE = `llm-cloak — redact secrets & PII before they reach an LLM, and gate untrusted content
 
 Usage:
-  context-guard scan    [file]    Report secrets, PII and injection risk (exit 1 at --fail-on)
-  context-guard redact  [file]    Print text with sensitive values replaced by placeholders
-  context-guard restore [file]    Restore placeholders using --map <file>
-  context-guard detectors         List built-in detector ids
-  context-guard rules             List injection rule ids
+  llm-cloak scan    [file]    Report secrets, PII and injection risk (exit 1 at --fail-on)
+  llm-cloak redact  [file]    Print text with sensitive values replaced by placeholders
+  llm-cloak restore [file]    Restore placeholders using --map <file>
+  llm-cloak detectors         List built-in detector ids
+  llm-cloak rules             List injection rule ids
 
 Input: a file path, or "-" / omitted to read stdin.
 
@@ -47,10 +47,10 @@ Options:
   --help                 Show this help
 
 Examples:
-  context-guard scan docs/rag-index.md
-  cat page.html | context-guard scan --json --fail-on high
-  context-guard redact prompt.txt --map map.json --out prompt.safe.txt
-  context-guard restore reply.txt --map map.json
+  llm-cloak scan docs/rag-index.md
+  cat page.html | llm-cloak scan --json --fail-on high
+  llm-cloak redact prompt.txt --map map.json --out prompt.safe.txt
+  llm-cloak restore reply.txt --map map.json
 `;
 
 interface CliOptions {
@@ -70,7 +70,7 @@ interface CliOptions {
 }
 
 function fail(message: string, code = 2): never {
-  process.stderr.write(`context-guard: ${message}\n`);
+  process.stderr.write(`llm-cloak: ${message}\n`);
   process.exit(code);
 }
 
@@ -243,7 +243,7 @@ function main(): void {
   }
 
   if (command === "restore") {
-    if (!args.map) fail("restore requires --map <file> (produced by `context-guard redact --map …`)");
+    if (!args.map) fail("restore requires --map <file> (produced by `llm-cloak redact --map …`)");
     const text = readInput(input);
     let mappings: Record<string, string>;
     try {

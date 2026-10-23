@@ -1,5 +1,5 @@
 {
-  "name": "context-guard",
+  "name": "llm-cloak",
   "version": "0.1.0",
   "description": "A zero-dependency context firewall for LLM apps: redact secrets & PII before they reach a model, restore them in responses, and stop prompt injections in untrusted content.",
   "keywords": [
@@ -29,7 +29,7 @@
     "./package.json": "./package.json"
   },
   "bin": {
-    "context-guard": "./dist/esm/cli.js"
+    "llm-cloak": "./dist/esm/cli.js"
   },
   "files": [
     "dist",
@@ -51,14 +51,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Dhaxor/context-guard.git"
+    "url": "git+https://github.com/Dhaxor/llm-cloak.git"
   },
   "author": "Dhaxor (Gain John)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Dhaxor/context-guard/issues"
+    "url": "https://github.com/Dhaxor/llm-cloak/issues"
   },
-  "homepage": "https://github.com/Dhaxor/context-guard#readme",
+  "homepage": "https://github.com/Dhaxor/llm-cloak#readme",
   "devDependencies": {
     "@types/node": "^22.10.2",
     "typescript": "^5.7.2",

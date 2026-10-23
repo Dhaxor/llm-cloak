@@ -1,5 +1,5 @@
 /**
- * context-guard — a zero-dependency context firewall for LLM apps.
+ * llm-cloak — a zero-dependency context firewall for LLM apps.
  *
  * Three jobs, one small library:
  * 1. `redact()`    — replace secrets & PII with reversible placeholders before

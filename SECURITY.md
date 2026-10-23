@@ -2,7 +2,7 @@
 
 ## Scope and honest limitations
 
-`context-guard` is a **local, heuristic** filter. It greatly reduces the
+`llm-cloak` is a **local, heuristic** filter. It greatly reduces the
 chance that credentials and PII reach a model provider, and catches the
 common prompt-injection patterns seen in the wild. It is **not** a guarantee:
 
@@ -14,7 +14,7 @@ common prompt-injection patterns seen in the wild. It is **not** a guarantee:
   `mappings` object — it contains the original secrets by design.
 
 For adversarial settings, layer defense in depth: least-privilege tools,
-egress allowlists, human review — use context-guard as the first gate, not
+egress allowlists, human review — use llm-cloak as the first gate, not
 the only one.
 
 ## Reporting a vulnerability

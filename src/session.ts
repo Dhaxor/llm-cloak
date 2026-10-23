@@ -16,7 +16,7 @@ function isPlainObject(value: unknown): value is Record<string, unknown> {
  * model responses can be restored at any point.
  *
  * ```ts
- * import { createGuardSession } from "context-guard";
+ * import { createGuardSession } from "llm-cloak";
  *
  * const guard = createGuardSession();
  * const { text } = guard.redact("Deploy with OPENAI_API_KEY=sk-proj-…");

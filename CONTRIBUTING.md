@@ -5,8 +5,8 @@ Thanks for helping make LLM contexts safer.
 ## Setup
 
 ```bash
-git clone https://github.com/Dhaxor/context-guard
-cd context-guard
+git clone https://github.com/Dhaxor/llm-cloak
+cd llm-cloak
 npm install
 npm test        # vitest
 npm run build   # tsc ESM + CJS into dist/

@@ -5,7 +5,7 @@ import { escapeRegExp } from "./internal/utils.js";
  * Swap placeholders back to their original values.
  *
  * ```ts
- * import { redact, restore } from "context-guard";
+ * import { redact, restore } from "llm-cloak";
  *
  * const { text, mappings } = redact("My email is jane@acme.io");
  * const reply = "Got it — I will email [EMAIL_1] shortly.";

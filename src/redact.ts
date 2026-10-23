@@ -5,7 +5,7 @@ import { buildPlaceholder, collectSpans, resolveDetectors, toFinding } from "./i
  * Redact secrets and PII from text, replacing them with reversible placeholders.
  *
  * ```ts
- * import { redact } from "context-guard";
+ * import { redact } from "llm-cloak";
  *
  * const { text, mappings } = redact("Ping me at jane@acme.io about invoice 4111-1111-1111-1111");
  * // text: "Ping me at [EMAIL_1] about invoice [CREDIT_CARD_1]"
