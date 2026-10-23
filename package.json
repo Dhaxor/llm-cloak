@@ -1,0 +1,67 @@
+{
+  "name": "context-guard",
+  "version": "0.1.0",
+  "description": "A zero-dependency context firewall for LLM apps: redact secrets & PII before they reach a model, restore them in responses, and stop prompt injections in untrusted content.",
+  "keywords": [
+    "llm",
+    "ai",
+    "security",
+    "redaction",
+    "pii",
+    "secrets",
+    "prompt-injection",
+    "agent",
+    "guardrails",
+    "privacy",
+    "openai",
+    "anthropic",
+    "zero-dependency"
+  ],
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "context-guard": "./dist/esm/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && node scripts/fix-cjs-package.mjs",
+    "clean": "node -e \"fs.rmSync('dist',{recursive:true,force:true})\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p tsconfig.esm.json --noEmit",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dhaxor/context-guard.git"
+  },
+  "author": "Dhaxor (Gain John)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dhaxor/context-guard/issues"
+  },
+  "homepage": "https://github.com/Dhaxor/context-guard#readme",
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
